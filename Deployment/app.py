@@ -12,7 +12,7 @@ from PIL import Image
 
 
 # Page config
-st.set_page_config(page_title="ARMOR Lab Human Digital Twin Demo", layout="wide")
+st.set_page_config(page_title="ARMOR Lab Human Digital Twin Demo", layout="wide", page_icon = '/app/human_digital_twin/Deployment/EmbeddedImage.png')
 
 app_intro = """
 This website is designed for the demonstration of how functional human movement assessment can be done by using Motion Tape.

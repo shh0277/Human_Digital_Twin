@@ -1,9 +1,0 @@
-numpy
-os
-csv
-matplotlib
-streamlit
-pillow
-torch
-torchvision
-torchaudio

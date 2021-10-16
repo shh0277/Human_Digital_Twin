@@ -45,6 +45,7 @@ if model_name == "Bicep Curl":
     if file:
         st.write('File Received.')
     else:
+        pass
         #st.header('Example:')
 
         #st.subheader('Motion Capture System:')

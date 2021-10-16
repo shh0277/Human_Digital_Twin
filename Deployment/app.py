@@ -18,10 +18,7 @@ app_intro = """
 This website is designed for the demonstration of how functional human movement assessment can be done by using Motion Tape.
 For each model/movement, the results obtained from the motion capture system are served as ground truth values to train the model.
 Predictions are compared with the results obtained from the motion capture system to demonstrate the performance of Motion Tape.
-* __Some Text here__: Some Text here
-* __Some Text here__: Some Text here
-* __Some Text here__: Some Text here
-* __Some Text here__: Some Text here \n
+* __Note__: Please change to the light theme for best user experiences. \n
 """
 
 # Info

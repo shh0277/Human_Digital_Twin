@@ -57,7 +57,7 @@ if model_name == "Bicep Curl":
         st.image(image3)
 
         st.subheader('Prediction:')
-        col_left, col_mid, col_right = st.columns([2, 2, 1])
+        col_left, col_mid, col_right = st.columns([2, 1, 1])
         with col_mid:
             image4 = Image.open('/app/human_digital_twin/Deployment/Trial9.png')
             st.image(image4)

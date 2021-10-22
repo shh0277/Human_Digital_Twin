@@ -1,4 +1,5 @@
 numpy==1.20.1
+panda
 matplotlib==3.3.4
 streamlit==1.0.0
 pillow==8.2.0

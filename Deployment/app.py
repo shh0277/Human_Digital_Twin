@@ -44,6 +44,9 @@ with st.sidebar.expander('Models', expanded=True):
 if model_name == "Bicep Curl":
     if file:
         st.write('File Received.')
+        
+        xy = np.loadtxt(file)
+        st.table(xy)
     else:
         pass
         #st.header('Example:')

@@ -2,6 +2,7 @@ import torch, pytz
 import torch.nn as nn
 from torch.utils.data import Dataset, DataLoader
 import numpy as np
+import panda as pd
 import os, csv
 # For plotting
 import matplotlib.pyplot as plt
@@ -45,7 +46,7 @@ if model_name == "Bicep Curl":
     if file:
         st.write('File Received.')
         
-        xy = np.loadtxt(file)
+        xy = pd.read_csv(file)
         st.table(xy)
     else:
         pass

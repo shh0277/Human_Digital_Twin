@@ -2,7 +2,7 @@ import torch, pytz
 import torch.nn as nn
 from torch.utils.data import Dataset, DataLoader
 import numpy as np
-import panda as pd
+import pandas as pd
 import os, csv
 # For plotting
 import matplotlib.pyplot as plt

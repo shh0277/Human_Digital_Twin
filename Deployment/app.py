@@ -86,6 +86,7 @@ if model_name == "Bicep Curl":
                 mime='image/png'
             )
     else:
+        pass
         #st.header('Example:')
 
         #st.subheader('Motion Capture System:')

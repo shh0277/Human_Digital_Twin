@@ -237,7 +237,7 @@ def Reconstruct(file):
 
     test_set = prep_dataloader(file, mode = 'Test', batch_size=1, n_jobs = 0, config=config)
     model = DNN(config).to(device)
-    ckpt = torch.load('model.pth', map_location='cpu')  # Load the best model
+    ckpt = torch.load('/app/human_digital_twin/Deployment/model.pth', map_location='cpu')  # Load the best model
     model.load_state_dict(ckpt)
 
     preds, targets = test(test_set, model, device)  

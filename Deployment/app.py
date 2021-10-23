@@ -15,7 +15,7 @@ import Reconstruction_DNN
 
 
 # Page config
-st.set_page_config(page_title="ARMOR Lab Human Digital Twin Demo", layout="wide")
+st.set_page_config(page_title="ARMOR Lab Human Digital Twin Demo", layout="wide", page_icon="/app/human_digital_twin/Deployment/EmbeddedImage.png")
 
 app_intro = """
 This website is designed for the demonstration of how functional human movement assessment can be done by using Motion Tape.
@@ -31,8 +31,8 @@ st.write(app_intro)
 st.write("")
 st.write("")
 
-image = Image.open("Picture1.png")
-image2 = Image.open("UCSDLogo_JSOE_Black.png")
+image = Image.open("/app/human_digital_twin/Deployment/Picture1.png")
+image2 = Image.open("/app/human_digital_twin/Deployment/UCSDLogo_JSOE_Black.png")
 st.sidebar.image(image2, use_column_width=True)
 st.sidebar.image(image, use_column_width=True)
 
@@ -86,22 +86,22 @@ if model_name == "Bicep Curl":
                 mime='image/png'
             )
     else:
-        st.header('Example:')
+        #st.header('Example:')
 
-        st.subheader('Motion Capture System:')
-        video_file = open('Trial09.mp4', 'rb')
-        video_bytes = video_file.read()
-        st.video(video_bytes)
+        #st.subheader('Motion Capture System:')
+        #video_file = open('Trial09.mp4', 'rb')
+        #video_bytes = video_file.read()
+        #st.video(video_bytes)
 
-        st.subheader('Voltage Responses from Motion Tape:')
-        image3 = Image.open('Trial09.jpg')
-        st.image(image3)
+        #st.subheader('Voltage Responses from Motion Tape:')
+        #image3 = Image.open('Trial09.jpg')
+        #st.image(image3)
 
-        st.subheader('Prediction:')
-        col_left, col_mid, col_right = st.columns([1, 2, 1])
-        with col_mid:
-            image4 = Image.open('Trial9.png')
-            st.image(image4)
+        #st.subheader('Prediction:')
+        #col_left, col_mid, col_right = st.columns([1, 2, 1])
+        #with col_mid:
+        #    image4 = Image.open('Trial9.png')
+        #    st.image(image4)
 elif model_name == "Squat":
     if file:
         pass

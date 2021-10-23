@@ -140,7 +140,7 @@ class BicepCurlDataset(Dataset):
         plt.xlabel('Time [s]')
         plt.ylabel('Voltage [V]')
         plt.ioff()
-        plt.savefig('elbow_data.png')
+        plt.savefig('/app/human_digital_twin/Deployment/elbow_data.png')
         plt.close()
 
         
@@ -149,7 +149,7 @@ class BicepCurlDataset(Dataset):
         plt.xlabel('Time [s]')
         plt.ylabel('Voltage [V]')
         plt.ioff()
-        plt.savefig('bicep_data.png')
+        plt.savefig('/app/human_digital_twin/Deployment/bicep_data.png')
         plt.close()
 
         
@@ -158,7 +158,7 @@ class BicepCurlDataset(Dataset):
         plt.xlabel('Time [s]')
         plt.ylabel('Elbow Angle [$^\circ$]')
         plt.ioff()
-        plt.savefig('angle_data.png')
+        plt.savefig('/app/human_digital_twin/Deployment/angle_data.png')
         plt.close()
 
         self.xdata.append(torch.from_numpy(xy[:, :num_feature-1]).float())
@@ -276,7 +276,7 @@ def save_pred(preds, targets):
                 writer.writerow([j, i[j], targets[index][0, j].detach().cpu().item()])
                 
     for index, i in enumerate(preds):
-        with open('results.csv', newline='') as csvfile:
+        with open('/app/human_digital_twin/Deployment/results.csv', newline='') as csvfile:
             reader = csv.reader(csvfile, delimiter=',')
             preds_plot = []
             targets_plot = []
@@ -301,7 +301,7 @@ def save_pred(preds, targets):
             plt.legend()
             
             plt.ioff()
-            plt.savefig('plot.png')
+            plt.savefig('/app/human_digital_twin/Deployment/plot.png')
             plt.close()
 
 

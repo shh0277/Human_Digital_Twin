@@ -191,7 +191,7 @@ class BicepCurlDataset(Dataset):
 
 # In[22]:
 
-@st.cache(suppress_st_warning=True)
+@st.cache()
 def prep_dataloader(file, mode, batch_size, n_jobs, config):
     ''' Generates a dataset, then is put into a dataloader. '''
     dataset = BicepCurlDataset(file, mode=mode, config = config)  # Construct dataset
@@ -206,7 +206,7 @@ def prep_dataloader(file, mode, batch_size, n_jobs, config):
 # ## Load Model
 
 # In[23]:
-@st.cache(suppress_st_warning=True)
+@st.cache()
 def Reconstruct(file):
     print('Reconstruct...')
 
@@ -248,7 +248,7 @@ def Reconstruct(file):
 
 # In[24]:
 
-@st.cache(suppress_st_warning=True)
+@st.cache()
 def test(tt_set, model, device):
     model.eval()                                # set model to evalutation mode
     preds = []
@@ -262,7 +262,7 @@ def test(tt_set, model, device):
     #preds = torch.cat(preds, dim=0).numpy()     # concatenate all predictions and convert to a numpy array
     return preds, targets
 
-@st.cache(suppress_st_warning=True)
+@st.cache()
 def save_pred(preds, targets):
     
     print('Saving results...')

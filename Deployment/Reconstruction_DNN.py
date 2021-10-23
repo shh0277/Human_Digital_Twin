@@ -295,8 +295,8 @@ def save_pred(preds, targets):
                 
             plt.plot(times_plot, preds_plot, c='tab:red', label='preds')
             plt.plot(times_plot, targets_plot, c='tab:cyan', label='targets')
-            plt.xlabel('Time (s)')
-            plt.ylabel('Elbow Angle (deg)')
+            plt.xlabel('Time [s]')
+            plt.ylabel('Elbow Angle [$^\circ$]')
             plt.title('Reconstruction of Elbow Angle')
             plt.legend()
             

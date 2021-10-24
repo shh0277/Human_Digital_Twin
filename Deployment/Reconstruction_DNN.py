@@ -140,7 +140,7 @@ class BicepCurlDataset(Dataset):
         plt.xlabel('Time [s]')
         plt.ylabel('Voltage [V]')
         plt.ioff()
-        plt.savefig('/app/human_digital_twin/Deployment/elbow_data.png')
+        plt.savefig('elbow_data.png')
         plt.close()
 
         
@@ -149,7 +149,7 @@ class BicepCurlDataset(Dataset):
         plt.xlabel('Time [s]')
         plt.ylabel('Voltage [V]')
         plt.ioff()
-        plt.savefig('/app/human_digital_twin/Deployment/bicep_data.png')
+        plt.savefig('bicep_data.png')
         plt.close()
 
         
@@ -158,7 +158,7 @@ class BicepCurlDataset(Dataset):
         plt.xlabel('Time [s]')
         plt.ylabel('Elbow Angle [$^\circ$]')
         plt.ioff()
-        plt.savefig('/app/human_digital_twin/Deployment/angle_data.png')
+        plt.savefig('angle_data.png')
         plt.close()
 
         self.xdata.append(torch.from_numpy(xy[:, :num_feature-1]).float())
@@ -191,7 +191,7 @@ class BicepCurlDataset(Dataset):
 
 # In[22]:
 
-@st.cache()
+@st.cache(suppress_st_warning=True)
 def prep_dataloader(file, mode, batch_size, n_jobs, config):
     ''' Generates a dataset, then is put into a dataloader. '''
     dataset = BicepCurlDataset(file, mode=mode, config = config)  # Construct dataset
@@ -206,7 +206,7 @@ def prep_dataloader(file, mode, batch_size, n_jobs, config):
 # ## Load Model
 
 # In[23]:
-@st.cache()
+@st.cache(suppress_st_warning=True)
 def Reconstruct(file):
     print('Reconstruct...')
 
@@ -248,7 +248,7 @@ def Reconstruct(file):
 
 # In[24]:
 
-@st.cache()
+@st.cache(suppress_st_warning=True)
 def test(tt_set, model, device):
     model.eval()                                # set model to evalutation mode
     preds = []
@@ -262,7 +262,7 @@ def test(tt_set, model, device):
     #preds = torch.cat(preds, dim=0).numpy()     # concatenate all predictions and convert to a numpy array
     return preds, targets
 
-@st.cache()
+@st.cache(suppress_st_warning=True)
 def save_pred(preds, targets):
     
     print('Saving results...')
@@ -276,7 +276,7 @@ def save_pred(preds, targets):
                 writer.writerow([j, i[j], targets[index][0, j].detach().cpu().item()])
                 
     for index, i in enumerate(preds):
-        with open('/app/human_digital_twin/Deployment/results.csv', newline='') as csvfile:
+        with open('results.csv', newline='') as csvfile:
             reader = csv.reader(csvfile, delimiter=',')
             preds_plot = []
             targets_plot = []
@@ -301,7 +301,7 @@ def save_pred(preds, targets):
             plt.legend()
             
             plt.ioff()
-            plt.savefig('/app/human_digital_twin/Deployment/plot.png')
+            plt.savefig('plot.png')
             plt.close()
 
 

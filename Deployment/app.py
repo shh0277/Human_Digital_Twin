@@ -95,7 +95,7 @@ if model_name == "Bicep Curl":
         st.video(video_bytes)
 
         st.subheader('Voltage Responses from Motion Tape:')
-        image3 = Image.open('/app/human_digital_twin/Deployment/Picture1_watermarked.png')
+        image3 = Image.open('/app/human_digital_twin/Deployment/Picture1_watermatked.png')
         st.image(image3)
 
         st.subheader('Prediction:')

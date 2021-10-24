@@ -86,23 +86,23 @@ if model_name == "Bicep Curl":
                 mime='image/png'
             )
     else:
-        pass
-        #st.header('Example:')
+        
+        st.header('Example:')
 
-        #st.subheader('Motion Capture System:')
-        #video_file = open('Trial09.mp4', 'rb')
-        #video_bytes = video_file.read()
-        #st.video(video_bytes)
+        st.subheader('Motion Capture System:')
+        video_file = open('/app/human_digital_twin/Deployment/final_6174d072ebf5c9008306570d_644651.mp4', 'rb')
+        video_bytes = video_file.read()
+        st.video(video_bytes)
 
-        #st.subheader('Voltage Responses from Motion Tape:')
-        #image3 = Image.open('Trial09.jpg')
-        #st.image(image3)
+        st.subheader('Voltage Responses from Motion Tape:')
+        image3 = Image.open('/app/human_digital_twin/Deployment/Picture1_watermarked.png')
+        st.image(image3)
 
-        #st.subheader('Prediction:')
-        #col_left, col_mid, col_right = st.columns([1, 2, 1])
-        #with col_mid:
-        #    image4 = Image.open('Trial9.png')
-        #    st.image(image4)
+        st.subheader('Prediction:')
+        col_left, col_mid, col_right = st.columns([1, 2, 1])
+        with col_mid:
+            image4 = Image.open('/app/human_digital_twin/Deployment/Picture2_watermarked.png')
+            st.image(image4)
 elif model_name == "Squat":
     if file:
         pass

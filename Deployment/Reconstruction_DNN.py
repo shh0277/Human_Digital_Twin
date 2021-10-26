@@ -191,7 +191,7 @@ class BicepCurlDataset(Dataset):
 
 # In[22]:
 
-#@st.cache(suppress_st_warning=True)
+
 def prep_dataloader(file, mode, batch_size, n_jobs, config):
     ''' Generates a dataset, then is put into a dataloader. '''
     dataset = BicepCurlDataset(file, mode=mode, config = config)  # Construct dataset
@@ -206,7 +206,7 @@ def prep_dataloader(file, mode, batch_size, n_jobs, config):
 # ## Load Model
 
 # In[23]:
-#@st.cache(suppress_st_warning=True)
+
 def Reconstruct(file):
     print('Reconstruct...')
 
@@ -230,14 +230,16 @@ def Reconstruct(file):
         'hidden_size': 256,
         'num_layers': 3,
         'dropout_rate': 0,
-        'mean': np.array([[0.30896, 0.3175, 1.2814]]),
-        'std': np.array([[0.14742, 0.089428, 0.85991]])
+        'mean': np.array([[0.18856, 0.25785, 2.1923]]),
+        'std': np.array([[0.19122, 0.15088, 1.4071]])
+        #'mean': np.array([[0.30896, 0.3175, 1.2814]]),
+        #'std': np.array([[0.14742, 0.089428, 0.85991]])
     }
 
 
     test_set = prep_dataloader(file, mode = 'Test', batch_size=1, n_jobs = 0, config=config)
     model = DNN(config).to(device)
-    ckpt = torch.load('/app/human_digital_twin/Deployment/model.pth', map_location='cpu')  # Load the best model
+    ckpt = torch.load('/app/human_digital_twin/Deployment/model_new_norm.pth', map_location='cpu')  # Load the best model
     model.load_state_dict(ckpt)
 
     preds, targets = test(test_set, model, device)  
@@ -248,7 +250,6 @@ def Reconstruct(file):
 
 # In[24]:
 
-#@st.cache(suppress_st_warning=True)
 def test(tt_set, model, device):
     model.eval()                                # set model to evalutation mode
     preds = []
@@ -262,7 +263,6 @@ def test(tt_set, model, device):
     #preds = torch.cat(preds, dim=0).numpy()     # concatenate all predictions and convert to a numpy array
     return preds, targets
 
-#@st.cache(suppress_st_warning=True)
 def save_pred(preds, targets):
     
     print('Saving results...')

@@ -136,11 +136,11 @@ class BicepCurlDataset(Dataset):
 
         
         plt.plot(times_plot, xy[:, 0])
-        plt.title('Voltage Signals from Elbow')
+        plt.title('Voltage Signals from Front Arm')
         plt.xlabel('Time [s]')
         plt.ylabel('Voltage [V]')
         plt.ioff()
-        plt.savefig('elbow_data.png')
+        plt.savefig('front_arm_data.png')
         plt.close()
 
         

@@ -56,7 +56,7 @@ if model_name == "Bicep Curl":
         st.subheader('Raw Data:')
         col_left, col_mid, col_right = st.columns([1, 1, 1])
         with col_left:
-            image = Image.open('elbow_data.png')
+            image = Image.open('front_arm_data.png')
             st.image(image)
         with col_mid:
             image = Image.open('bicep_data.png')

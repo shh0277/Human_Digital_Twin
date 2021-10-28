@@ -231,7 +231,7 @@ def Reconstruct(file):
         'num_layers': 3,
         'dropout_rate': 0,
         'mean': np.array([[1.3451, -0.4035,  0.  ]]),
-        'std': np.array([[[0.49121, 0.3678,  0.    ]])
+        'std': np.array([[0.49121, 0.3678,  0.    ]])
         #'mean': np.array([[0.18856, 0.25785, 2.1923]]),
         #'std': np.array([[0.19122, 0.15088, 1.4071]])
     }

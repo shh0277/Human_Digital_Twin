@@ -135,19 +135,19 @@ class BicepCurlDataset(Dataset):
         times_plot = np.linspace(0, xy.shape[0]/150, xy.shape[0])
 
         
-        plt.plot(times_plot, xy[:, 0])
-        plt.title('Voltage Signals from Front Arm')
+        plt.plot(times_plot, xy[:, 0]*100)
+        plt.title('Percentage Change in Voltage Signals from Front Arm')
         plt.xlabel('Time [s]')
-        plt.ylabel('Voltage [V]')
+        plt.ylabel('Percentage Change in Voltage [%]')
         plt.ioff()
         plt.savefig('front_arm_data.png')
         plt.close()
 
         
-        plt.plot(times_plot, xy[:, 1])
-        plt.title('Voltage Signals from Bicep')
+        plt.plot(times_plot, xy[:, 1]*100)
+        plt.title('Percentage Change in Voltage Signals from Bicep')
         plt.xlabel('Time [s]')
-        plt.ylabel('Voltage [V]')
+        plt.ylabel('Percentage Change in Voltage [%]')
         plt.ioff()
         plt.savefig('bicep_data.png')
         plt.close()

@@ -108,7 +108,7 @@ elif model_name == "Squat":
         pass
     else:
         st.stop()
-elif model_name == "Bicep Curl (Mixed)"
+elif model_name == "Bicep Curl (Mixed)":
     if file:
         
         xy = pd.read_csv(file, header=None)

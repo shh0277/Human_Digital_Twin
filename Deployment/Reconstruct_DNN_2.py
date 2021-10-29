@@ -128,9 +128,6 @@ class BicepCurlDataset(Dataset):
         self.ydata = []
 
         xy = file[:, 1:]
-
-        for j in range(num_feature-1):
-            xy[:, j] = (xy[:,j]-config['mean'][0, j])/config['std'][0, j]
         
         times_plot = np.linspace(0, xy.shape[0]/150, xy.shape[0])
 
@@ -160,6 +157,9 @@ class BicepCurlDataset(Dataset):
         plt.ioff()
         plt.savefig('angle_data.png')
         plt.close()
+
+        for j in range(num_feature-1):
+            xy[:, j] = (xy[:,j]-config['mean'][0, j])/config['std'][0, j]
 
         self.xdata.append(torch.from_numpy(xy[:, :num_feature-1]).float())
         self.ydata.append(xy[:, 3])

@@ -11,7 +11,7 @@ from matplotlib.pyplot import figure
 import streamlit as st
 from PIL import Image
 
-import Reconstruction_DNN
+import Reconstruction_DNN, Reconstruct_DNN_2
 
 
 # Page config
@@ -41,7 +41,7 @@ st.sidebar.image(image, use_column_width=True)
 with st.sidebar.expander('Models', expanded=True):
     model_name = st.selectbox(
         "Select a model",
-        options=('Bicep Curl', 'Squat'))
+        options=('Bicep Curl', 'Bicep Curl (Mixed)', 'Squat'))
     
     file = st.file_uploader("Upload a csv file", type="csv")
 
@@ -108,5 +108,62 @@ elif model_name == "Squat":
         pass
     else:
         st.stop()
+elif model_name == "Bicep Curl (Mixed)"
+    if file:
+        
+        xy = pd.read_csv(file, header=None)
+        xy = xy.to_numpy()
 
+        Reconstruct_DNN_2.Reconstruct(xy)
+
+        st.subheader('Raw Data:')
+        col_left, col_mid, col_right = st.columns([1, 1, 1])
+        with col_left:
+            image = Image.open('front_arm_data.png')
+            st.image(image)
+        with col_mid:
+            image = Image.open('bicep_data.png')
+            st.image(image)
+        with col_right:
+            image = Image.open('angle_data.png')
+            st.image(image)
+
+        st.subheader('Prediction:')
+        col_left2, col_mid2, col_right2 = st.columns([1, 2, 1])
+        with col_mid2:
+            image = Image.open('plot.png')
+            st.image(image)
+
+        st.download_button(
+            label="Download Prediction Results as CSV",
+            data=pd.read_csv('results.csv').to_csv(index = False),
+            file_name='results.csv',
+            mime='text/csv'
+        )
+
+        with open("plot.png", 'rb') as figure:
+            st.download_button(
+                label="Download the Plot as PNG",
+                data=figure,
+                file_name='plot.png',
+                mime='image/png'
+            )
+    else:
+        
+        st.header('Example:')
+
+        st.subheader('Motion Capture System:')
+        video_file = open('/app/human_digital_twin/Deployment/final_6174d072ebf5c9008306570d_644651.mp4', 'rb')
+        video_bytes = video_file.read()
+        st.video(video_bytes)
+
+        st.subheader('Voltage Responses from Motion Tape:')
+        image3 = Image.open('/app/human_digital_twin/Deployment/Picture1_watermatked.png')
+        st.image(image3)
+
+        st.subheader('Prediction:')
+        col_left, col_mid, col_right = st.columns([1, 2, 1])
+        with col_mid:
+            image4 = Image.open('/app/human_digital_twin/Deployment/Picture2_watermarked.png')
+            st.image(image4)
 

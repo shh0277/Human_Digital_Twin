@@ -136,7 +136,7 @@ class BicepCurlDataset(Dataset):
 
         
         plt.plot(times_plot, xy[:, 0]*100)
-        plt.title('Percentage Change in Voltage Signals from Front Arm')
+        plt.title('Percentage Change in Voltage Signals from Forearm')
         plt.xlabel('Time [s]')
         plt.ylabel('Percentage Change in Voltage [%]')
         plt.ioff()

@@ -132,19 +132,19 @@ class BicepCurlDataset(Dataset):
         times_plot = np.linspace(0, xy.shape[0]/150, xy.shape[0])
 
         
-        plt.plot(times_plot, xy[:, 0]*100)
+        plt.plot(times_plot, xy[:, 0]/1000)
         plt.title('Difference in Resistance from Forearm')
         plt.xlabel('Time [s]')
-        plt.ylabel('Difference in Resistance [\Omega]')
+        plt.ylabel('Difference in Resistance [k$\omega$]')
         plt.ioff()
         plt.savefig('front_arm_data.png')
         plt.close()
 
         
-        plt.plot(times_plot, xy[:, 1]*100)
+        plt.plot(times_plot, xy[:, 1]/1000)
         plt.title('Difference in Resistance from Bicep')
         plt.xlabel('Time [s]')
-        plt.ylabel('Difference in Resistance [\Omega]')
+        plt.ylabel('Difference in Resistance [k$\omega$]')
         plt.ioff()
         plt.savefig('bicep_data.png')
         plt.close()

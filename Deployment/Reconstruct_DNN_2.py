@@ -133,18 +133,18 @@ class BicepCurlDataset(Dataset):
 
         
         plt.plot(times_plot, xy[:, 0]*100)
-        plt.title('Percentage Change in Voltage Signals from Forearm')
+        plt.title('Difference in Resistance from Forearm')
         plt.xlabel('Time [s]')
-        plt.ylabel('Percentage Change in Voltage [%]')
+        plt.ylabel('Difference in Resistance [\Omega]')
         plt.ioff()
         plt.savefig('front_arm_data.png')
         plt.close()
 
         
         plt.plot(times_plot, xy[:, 1]*100)
-        plt.title('Percentage Change in Voltage Signals from Bicep')
+        plt.title('Difference in Resistance from Bicep')
         plt.xlabel('Time [s]')
-        plt.ylabel('Percentage Change in Voltage [%]')
+        plt.ylabel('Difference in Resistance [\Omega]')
         plt.ioff()
         plt.savefig('bicep_data.png')
         plt.close()
@@ -214,7 +214,7 @@ def Reconstruct(file):
 
     config = {
         'n_epochs': 100,                # maximum number of epochs
-        'batch_size': 64,               # mini-batch size for dataloader
+        'batch_size': 32,               # mini-batch size for dataloader
         'optimizer': 'Adam',              # optimization algorithm (optimizer in torch.optim)
         'optim_hparas': {                # hyper-parameters for the optimizer
             'lr': 0.001, 
@@ -227,11 +227,11 @@ def Reconstruct(file):
         'lr_scheduler_hparas':{
             'gamma': 0.9,
         },
-        'hidden_size': 256,
-        'num_layers': 6,
-        'dropout_rate': 0.2,
-        'mean': np.array([[-0.15874,  0.40749,  0.   ]]),
-        'std': np.array([[0.25388, 0.22191, 0.       ]])
+        'hidden_size': 64,
+        'num_layers': 15,
+        'dropout_rate': 0,
+        'mean': np.array([[-2433.671,  4272.16,      0.  ]]),
+        'std': np.array([[4557.5005, 3560.1314,    0.    ]])
     }
 
 
